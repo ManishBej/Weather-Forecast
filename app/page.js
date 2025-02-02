@@ -74,9 +74,10 @@ export default function Home() {
     <WeatherContainer>
       <LeftColumn>
         <SearchForm onSearch={updateWeather} />
+        {/* Use current weather data here instead of daily forecast */}
         <CurrentWeather 
           location={weatherData.location}
-          data={weatherData.daily.DailyForecasts[0]}
+          data={weatherData.current}
         />
         <DailyForecast forecast={weatherData.daily} />
       </LeftColumn>

@@ -46,6 +46,7 @@ const WeatherDetails = ({ data }) => {
   const windUnit = data?.Wind?.Speed?.Metric?.Unit || 'km/h';
   const humidity = data?.RelativeHumidity || 0;
   const feelsLike = data?.RealFeelTemperature?.Metric?.Value || 0;
+  // const feelsLike = data?.Temperature?.Metric?.Value || 0;
 
   return (
     <Container>

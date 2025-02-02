@@ -32,6 +32,8 @@ const Condition = styled.p`
 `
 
 export default function CurrentWeather({ location, data }) {
+  if (!data) return null
+
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-US', {
       weekday: 'short',
@@ -57,8 +59,8 @@ export default function CurrentWeather({ location, data }) {
           <time>{formatTime()}</time>
         </DateTime>
       </WeatherHeader>
-      <Temperature>{Math.round(data.Temperature.Maximum.Value)}°C</Temperature>
-      <Condition>{data.Day.IconPhrase}</Condition>
+      <Temperature>{Math.round(data.Temperature?.Metric?.Value || 0)}°C</Temperature>
+      <Condition>{data.WeatherText}</Condition>
     </>
   )
 }
